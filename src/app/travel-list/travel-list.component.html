@@ -1,0 +1,23 @@
+<div class="containerTable mb-5">
+  <div><h3>Nuestro Paquetes de viajes mas solicitado</h3></div>
+  <div class="row my-5 cards-sponsor row-cols-1 row-cols-md-4 g-3">
+    <div *ngFor="let travel of travels" class="col">
+      <div class="card h-100">
+        <img
+          [src]="travel.image"
+          [alt]="travel.name"
+          class="card-img-top"
+          width="150"
+          height="140"
+        />
+        <div class="card-body">
+          <p>Viaje a : {{ travel.name }}</p>
+          <p>${{ travel.price }}</p>
+          <p>Duracion : {{ travel.duration }} dias</p>
+          <p>Fecha :{{ travel.start_date }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- figure 2  -->
+  </div>
+</div>
