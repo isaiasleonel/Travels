@@ -7,4 +7,6 @@ export interface Travel {
   start_date: string;
   duration: number;
   stock: number;
+  clearance: boolean;
+  quantity: number;
 }

@@ -2,7 +2,7 @@
   <div><h3>Nuestro Paquetes de viajes mas solicitado</h3></div>
   <div class="row my-5 cards-sponsor row-cols-1 row-cols-md-4 g-3">
     <div *ngFor="let travel of travels" class="col">
-      <div class="card h-100">
+      <div class="card h-100 animate__animated animate__pulse">
         <img
           [src]="travel.image"
           [alt]="travel.name"
@@ -10,11 +10,43 @@
           width="150"
           height="140"
         />
-        <div class="card-body">
+        <div [ngClass]="{ clearance: travel.clearance }" class="card-body">
           <p>Viaje a : {{ travel.name }}</p>
-          <p>${{ travel.price }}</p>
+          <p>{{ travel.price | currency }}</p>
           <p>Duracion : {{ travel.duration }} dias</p>
           <p>Fecha :{{ travel.start_date }}</p>
+
+          <div class="input-group">
+            <div class="input-conteiner input-group">
+              <div class="input-group-prepend">
+                <button
+                  class="btn btn-dark btn-sm"
+                  (click)="downQuantity(travel)"
+                >
+                  -
+                </button>
+              </div>
+              <input
+                type="text"
+                [(ngModel)]="travel.quantity"
+                class="input-number text-center"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-dark btn-sm"
+                  (click)="upQuantity(travel)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <button class="btn-pay btn-dark">COMPRAR</button>
+          <p class="p-badge">
+            <span class="badge text-bg-warning" *ngIf="travel.stock == 0">
+              Sin Stock</span
+            >
+          </p>
         </div>
       </div>
     </div>

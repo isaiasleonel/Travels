@@ -1,0 +1,39 @@
+.input-number {
+  width: 30%;
+}
+
+.input-conteiner {
+  justify-content: center;
+}
+.btn-pay {
+  border-radius: 10px;
+  background-color: black;
+  color: aliceblue;
+  padding: 10px, 20px;
+  font-size: 16px;
+  overflow: hidden;
+  transition: 0.5s;
+  border: 1px solid white;
+  margin: auto;
+  margin: 10px 0 0 25px;
+}
+.btn-pay:hover {
+  background-color: black;
+  color: aliceblue;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #120e26 0 0 25px #120e26 0 0 50px #120e26 0 0 100px
+    #120e26;
+  font-size: 1.1rem;
+}
+.badge {
+  margin: 8% 0 0 25%;
+}
+.p-badge {
+  margin-bottom: 0px;
+}
+.clearance {
+  background-color: #d5e9ae;
+}
+.clearance:hover {
+  background-color: rgb(159, 204, 70);
+}
