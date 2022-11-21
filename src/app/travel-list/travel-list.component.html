@@ -15,33 +15,17 @@
           <p>{{ travel.price | currency }}</p>
           <p>Duracion : {{ travel.duration }} dias</p>
           <p>Fecha :{{ travel.start_date }}</p>
-
-          <div class="input-group">
-            <div class="input-conteiner input-group">
-              <div class="input-group-prepend">
-                <button
-                  class="btn btn-dark btn-sm"
-                  (click)="downQuantity(travel)"
-                >
-                  -
-                </button>
-              </div>
-              <input
-                type="text"
-                [(ngModel)]="travel.quantity"
-                class="input-number text-center"
-              />
-              <div class="input-group-append">
-                <button
-                  class="btn btn-dark btn-sm"
-                  (click)="upQuantity(travel)"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          </div>
-          <button class="btn-pay btn-dark">COMPRAR</button>
+          <!-- modulo de cantidad -->
+          <app-input-integer
+            [(quantity)]="travel.quantity"
+            [max]="travel.stock"
+            *ngIf="travel.stock"
+            (maxReached)="maxReached($event)"
+          >
+          </app-input-integer>
+          <button class="btn-pay btn-dark" (click)="addToCart(travel)">
+            COMPRAR
+          </button>
           <p class="p-badge">
             <span class="badge text-bg-warning" *ngIf="travel.stock == 0">
               Sin Stock</span

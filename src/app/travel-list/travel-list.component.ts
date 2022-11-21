@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TravelCartService } from '../travel-cart.service';
 import { Travel } from './Travel';
 
 @Component({
@@ -7,7 +8,7 @@ import { Travel } from './Travel';
   styleUrls: ['./travel-list.component.css'],
 })
 export class TravelListComponent implements OnInit {
-  constructor() {}
+  constructor(private cart: TravelCartService) {}
 
   travels: Travel[] = [
     {
@@ -16,7 +17,7 @@ export class TravelListComponent implements OnInit {
       image: 'assets/uruguay.png',
       start_date: ' 12/ 22/ 2022',
       duration: 12,
-      stock: 2,
+      stock: 6,
       quantity: 0,
       clearance: false,
     },
@@ -34,30 +35,22 @@ export class TravelListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  upQuantity(travel: Travel): void {
-    if (travel.quantity < travel.stock) {
-      travel.quantity++;
-    }
-
-    // if (this.quantity < this.max) {
-    //   this.quantity++;
-    //   this.quantityChange.emit(this.quantity);
-    // } else this.maxReached.emit('Se alcanzo el limite');
+  /**
+   * Se invoca esta funcion de Button
+   */
+  addToCart(travel: Travel): void {
+    //pasamos por parametro "travel"
+    this.cart.addToCart(travel);
+    //despues de agregar al travel , al stock le quita
+    travel.stock -= travel.quantity;
+    //reinicia a cero
+    travel.quantity = 0;
   }
 
-  downQuantity(travel: Travel): void {
-    if (travel.quantity > 0) {
-      travel.quantity--;
-
-      // if (this.quantity > 0) {
-      //   this.quantity--;
-      //   this.quantityChange.emit(this.quantity);
-      // }
-    }
-
-    // onChangeQuantity(): void {
-    //   console.log(this.quantity);
-    //   this.quantityChange.emit(this.quantity);
-    // }
+  /**
+   * funcion de entrada y salida de limite de stock en losbtn
+   */
+  maxReached(m: string) {
+    alert(m);
   }
 }
