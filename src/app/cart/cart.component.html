@@ -16,9 +16,13 @@
         <td>{{ travel.name }}</td>
         <td>{{ travel.start_date | uppercase }}</td>
         <td>{{ travel.duration }}</td>
-        <td>{{ travel.price | currency }}</td>
+        <td>{{ travel.price | currency: "ARS" }}</td>
         <td>Cant: {{ travel.quantity }}</td>
       </tr>
     </tbody>
   </table>
+  <p class="text-end">Total {{ total() | currency: "ARS" }}</p>
+  <div class="tex-end">
+    <button class="btn btn-info">Comprar</button>
+  </div>
 </div>

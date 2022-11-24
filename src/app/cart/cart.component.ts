@@ -9,17 +9,20 @@ import { Travel } from '../travel-list/Travel';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  // cartList$: Beer[];
   cartList$: Observable<Travel[]>;
+
   //mandamos por parametros al componente atravez de injectables de Idependencia
   constructor(private cart: TravelCartService) {
     this.cartList$ = cart.cartList.asObservable();
+  }
+  total() {
+    let suma = 0;
+    this.cart.cartList.getValue().forEach((travel) => {
+      suma += travel.quantity * travel.price;
 
-    // this.cartList$ = cart.cartList;
-
-    console.log(this.cartList$);
-    console.log(cart.getCartlist());
-    // this.cart = new BeerCartService();
+      console.log(this.cart.cartList);
+    });
+    return suma;
   }
 
   ngOnInit(): void {}
