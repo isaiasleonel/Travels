@@ -9,10 +9,18 @@ import { TravelAboutComponent } from './travel-about/travel-about.component';
 import { TravelTravelsComponent } from './travel-travels/travel-travels.component';
 import { CartComponent } from './cart/cart.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, TravelListComponent, TravelAboutComponent, TravelTravelsComponent, CartComponent, InputIntegerComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    TravelListComponent,
+    TravelAboutComponent,
+    TravelTravelsComponent,
+    CartComponent,
+    InputIntegerComponent,
+  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

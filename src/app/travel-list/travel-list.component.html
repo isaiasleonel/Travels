@@ -1,5 +1,7 @@
 <div class="containerTable mb-5">
-  <div><h3>Nuestro Paquetes de viajes mas solicitado</h3></div>
+  <div class="container">
+    <h3 class="title">Nuestros paquetes de viajes mas solicitados</h3>
+  </div>
   <div class="row my-5 cards-sponsor row-cols-1 row-cols-md-4 g-3">
     <div *ngFor="let travel of travels" class="col">
       <div class="card h-100 animate__animated animate__pulse">
@@ -14,7 +16,7 @@
           <p>Viaje a : {{ travel.name }}</p>
           <p>{{ travel.price | currency }}</p>
           <p>Duracion : {{ travel.duration }} dias</p>
-          <p>Fecha :{{ travel.start_date }}</p>
+          <p>Fecha :{{ travel.start_date | date }}</p>
           <!-- modulo de cantidad -->
           <app-input-integer
             [(quantity)]="travel.quantity"

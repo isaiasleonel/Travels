@@ -19,8 +19,8 @@ export class CartComponent implements OnInit {
     let suma = 0;
     this.cart.cartList.getValue().forEach((travel) => {
       suma += travel.quantity * travel.price;
-
       console.log(this.cart.cartList);
+      console.log('la suma es ' + suma);
     });
     return suma;
   }

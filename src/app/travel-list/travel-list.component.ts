@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelCartService } from '../travel-cart.service';
+import { TravelDataService } from '../travel-data.service';
 import { Travel } from './Travel';
 
 @Component({
@@ -8,32 +9,18 @@ import { Travel } from './Travel';
   styleUrls: ['./travel-list.component.css'],
 })
 export class TravelListComponent implements OnInit {
-  constructor(private cart: TravelCartService) {}
+  constructor(
+    private cart: TravelCartService,
+    private travelDataService: TravelDataService
+  ) {}
 
-  travels: Travel[] = [
-    {
-      name: 'Uruguay',
-      price: 1200,
-      image: 'assets/uruguay.png',
-      start_date: ' 12/ 22/ 2022',
-      duration: 12,
-      stock: 6,
-      quantity: 0,
-      clearance: false,
-    },
-    {
-      name: 'Peru',
-      price: 5200,
-      image: 'assets/uruguay.png',
-      start_date: ' 21/ 03/ 2022',
-      duration: 20,
-      stock: 0,
-      quantity: 0,
-      clearance: true,
-    },
-  ];
+  travels: Travel[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.travelDataService
+      .geetAll()
+      .subscribe((travels) => (this.travels = travels));
+  }
 
   /**
    * Se invoca esta funcion de Button

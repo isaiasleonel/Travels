@@ -1,28 +1,30 @@
-<h3>Carrito de compras</h3>
+<div class="container">
+  <h3 class="title">Carrito de Compra</h3>
+</div>
 
-<div *ngIf="cartList$ | async" class="col-3">
+<div *ngIf="cartList$ | async" class="col-9">
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">name</th>
-        <th scope="col">date</th>
-        <th scope="col">duration</th>
-        <th scope="col">price</th>
-        <th scope="col">cant</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Price</th>
+        <th scope="col">Cant</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let travel of cartList$ | async">
         <td>{{ travel.name }}</td>
-        <td>{{ travel.start_date | uppercase }}</td>
-        <td>{{ travel.duration }}</td>
+        <td>{{ travel.start_date | date }}</td>
+        <td>{{ travel.duration }} dias</td>
         <td>{{ travel.price | currency: "ARS" }}</td>
-        <td>Cant: {{ travel.quantity }}</td>
+        <td>{{ travel.quantity }}</td>
       </tr>
     </tbody>
   </table>
   <p class="text-end">Total {{ total() | currency: "ARS" }}</p>
-  <div class="tex-end">
+  <div class="text-end">
     <button class="btn btn-info">Comprar</button>
   </div>
 </div>

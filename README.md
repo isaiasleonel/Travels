@@ -1,3 +1,12 @@
+# Login de MockApi
+
+- Si nesecita agregar mas productos\*
+
+| Login    | Usuario               |
+| :------- | :-------------------- |
+| correo   | tanaxo9500@probdd.com |
+| password | 54321                 |
+
 # Travel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.

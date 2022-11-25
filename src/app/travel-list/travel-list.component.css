@@ -7,7 +7,7 @@
   overflow: hidden;
   transition: 0.5s;
   border: 1px solid white;
-  margin: 10% 16%;
+  margin: 10% 25%;
 }
 .btn-pay:hover {
   background-color: black;
@@ -29,4 +29,25 @@
 }
 .clearance:hover {
   background-color: rgb(159, 204, 70);
+}
+
+/* Titulo */
+
+@font-face {
+  font-family: "Monoton";
+  src: local("Monoton"), local("Monoton-Regular"),
+    url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff)
+      format("woff");
+}
+
+.title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.9em;
+  margin: 20px 0 20px 0;
+}
+
+.title {
+  color: black;
+  font-family: Monoton;
 }
