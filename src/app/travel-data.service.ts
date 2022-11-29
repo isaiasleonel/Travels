@@ -18,7 +18,7 @@ export class TravelDataService {
     //consumimos el api
     return this.http.get<Travel[]>(URL).pipe(
       tap((travels: Travel[]) =>
-        travels.forEach((travel) => (travel.quantity = 0))
+        travels.forEach((travel) => (travel.quantity = 1))
       ),
       tap((travels: Travel[]) =>
         travels.forEach((travel) => (travel.clearance = randomBoolean()))

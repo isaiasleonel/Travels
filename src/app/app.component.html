@@ -1,39 +1,112 @@
 <div class="row">
-  <div class="col-1 bg-dark border-right p-3" id="sidebar">
-    <div class="container">
-      <p>
-        <a [routerLink]="['travels']"> {{ title }} 2022 </a>
-      </p>
-    </div>
-    <hr class="text-white" />
-    <div class="list-group list-reset">
-      <a
-        [routerLink]="['travels']"
-        class="list-group-item list group-item-action"
-      >
-        <i class="fas fa-shipping-fast"> </i>
-        Home
-      </a>
-      <a [routerLink]="['cart']" class="list-group-item list group-item-action">
-        <i style="font-size: 15px" class="fas fa-cart-plus"></i>
-        <div class="badge bg-danger">{{ totalItemNumber }}</div>
-      </a>
-      <a
-        [routerLink]="['about']"
-        class="list-group-item list group-item-action"
-      >
-        About
-      </a>
+  <!-------------- Start Sidebar ------------>
+  <div class="col-12 col-lg-1 bg-dark border-right p-3" id="sidebar">
+    <div class="sidebar__container">
+      <div class="sidebar__title">
+        <a [routerLink]="['/']">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="currentColor"
+            class="sidebar_icon bi bi-airplane-engines"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0ZM7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1c.213 0 .458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7V3Z"
+            />
+          </svg>
+          {{ title }}
+        </a>
+      </div>
+      <hr class="text-white" />
+      <div class="list-group list-reset w-100">
+        <a
+          [routerLink]="['travels']"
+          routerLinkActive="active"
+          class="list-group-item list group-item-action"
+        >
+          <div class="sidebar__links">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-house-door"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"
+              />
+            </svg>
+            Home
+          </div>
+        </a>
+        <a
+          [routerLink]="['cart']"
+          routerLinkActive="active"
+          class="list-group-item list group-item-action"
+        >
+          <div class="sidebar__links">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cart4"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+              />
+            </svg>
+            Cart
+            <div *ngIf="totalItemNumber > 0" class="badge bg-danger">
+              {{ totalItemNumber }}
+            </div>
+          </div>
+        </a>
+
+        <a
+          [routerLink]="['about']"
+          routerLinkActive="active"
+          class="list-group-item list group-item-action"
+        >
+          <div class="sidebar__links">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-file-earmark-text"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+              />
+              <path
+                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"
+              />
+            </svg>
+            About
+          </div>
+        </a>
+      </div>
     </div>
   </div>
-
   <!-------------- End Sidebar ------------>
-  <div class="container-cart col-9 container">
+
+  <!-------------- Start Main Content ------------>
+  <div class="main-container col-9 container-fluid">
     <router-outlet></router-outlet>
   </div>
+  <!-------------- End Main Content ------------>
+
+  <!-------------- Start Footer ------------>
   <footer class="footer-bottom text-center bg-dark">
     <div class="footer-content">
       <span class="text-white"> {{ title }} 2022 </span>
     </div>
   </footer>
+  <!-------------- Start Footer ------------>
 </div>

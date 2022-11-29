@@ -7,7 +7,7 @@ import { TravelCartService } from './travel-cart.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'TRAVELLING THE WORLD ';
+  title = 'TRAVENLY';
   totalItemNumber: number = 0;
 
   constructor(private cartAPi: TravelCartService) {}
@@ -16,8 +16,5 @@ export class AppComponent implements OnInit {
     this.cartAPi.getProductData().subscribe((res) => {
       this.totalItemNumber = res.length;
     });
-    // this.cartAPi.removeCartData().subscribe((res) => {
-    //   this.totalItemNumber = res.length;
-    // });
   }
 }

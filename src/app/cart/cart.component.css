@@ -1,24 +1,10 @@
-/* Titulo */
-
-@font-face {
-  font-family: "Monoton";
-  src: local("Monoton"), local("Monoton-Regular"),
-    url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff)
-      format("woff");
-}
-
 .title {
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
   text-align: center;
-  font-size: 1.9em;
+  font-size: 2.4em;
   margin: 20px 0 20px 0;
 }
-
-.title {
-  color: black;
-  font-family: Monoton;
-}
-
 /*------------- Carrito Vacio------------ */
 .card {
   height: 60vh;
@@ -26,11 +12,7 @@
   padding: 25px;
 }
 .center {
-  top: 31%;
-  left: 58%;
-  transform: translate(-45%, -45%);
   text-align: center;
-  position: absolute;
 }
 .center img {
   outline: none;

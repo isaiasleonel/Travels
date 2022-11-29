@@ -1,81 +1,40 @@
-/* Title */
-@font-face {
-  font-family: "Monoton";
-  font-style: normal;
-  font-weight: 100;
-  src: local("Monoton"), local("Monoton-Regular"),
-    url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff)
-      format("woff");
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+
+  position: fixed;
+  width: 218px;
 }
 
-/*neon effect*/
-p {
-  text-align: center;
-  font-size: 1.4em;
-  margin: 20px 0 20px 0;
+.sidebar__title {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 1rem;
+  display: flex;
 }
 
-a {
+.sidebar__title a {
   text-decoration: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  color: #fff;
+}
+.sidebar_icon {
+  transform: rotate(43deg);
 }
 
-p:nth-child(1) a {
-  color: #dde4dd;
-  font-family: Monoton;
-}
-p:nth-child(1) a:hover {
-  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-  animation: neon1 1.5s ease-in-out infinite alternate;
-}
-
-p a:hover {
-  color: #ffffff;
-}
-
-/*glow for webkit-ket-frames*/
-@-webkit-keyframes neon1 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
-      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
-      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
-  }
-}
-
-/*glow for mozilla-keyframes*/
-@-moz-keyframes neon1 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
-      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
-      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
-  }
-}
-
-/*glow*/
-@keyframes neon1 {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1177,
-      0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 100px #ff1177, 0 0 150px #ff1177;
-  }
-  to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
-      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
-  }
+.sidebar__links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 #sidebar {
-  min-width: 200px;
+  min-width: 250px;
 }
-.container-cart {
+
+.main-container {
   min-height: 98vh;
   height: 100%;
 }
@@ -85,4 +44,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+/* ------------------Responsive: Media Query------------- */
+@media (max-width: 992px) {
+  .sidebar__container {
+    position: relative;
+  }
 }
