@@ -9,8 +9,11 @@ export class TravelCartService {
   // se implementa BehaviorSubject
   private _carList: Travel[] = [];
   cartList: BehaviorSubject<Travel[]> = new BehaviorSubject(this._carList);
-  // public travels: Observable<Travel[]> = this.cartList.asObservable();
   constructor() {}
+
+  getProductData() {
+    return this.cartList.asObservable();
+  }
 
   /**
    *   Recibimos por parametros
@@ -28,12 +31,26 @@ export class TravelCartService {
     } else {
       item.quantity += travel.quantity;
     }
-
     //emite nuevo🆕 valor (variable privada) ♻
     this.cartList.next(this._carList); //igual al emit de eventos
   }
 
   getCartlist(): Travel[] {
     return this._carList;
+  }
+
+  //Remove Cart data one by one
+  removeCartData(product: Travel) {
+    this._carList.map((a: any, index: any) => {
+      if (product.id === a.id) {
+        this._carList.splice(index, 1);
+        this.cartList.next(this._carList);
+      }
+    });
+  }
+  //Remove All Cart Data
+  removeAllCart() {
+    this._carList = [];
+    this.cartList.next(this._carList);
   }
 }

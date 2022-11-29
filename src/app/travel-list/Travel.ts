@@ -7,4 +7,5 @@ export interface Travel {
   stock: number;
   clearance: boolean;
   quantity: number;
+  id: number;
 }

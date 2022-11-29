@@ -1,30 +1,54 @@
-<div class="container">
-  <h3 class="title">Carrito de Compra</h3>
-</div>
-
-<div *ngIf="cartList$ | async" class="col-9">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Date</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Price</th>
-        <th scope="col">Cant</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let travel of cartList$ | async">
-        <td>{{ travel.name }}</td>
-        <td>{{ travel.start_date | date }}</td>
-        <td>{{ travel.duration }} dias</td>
-        <td>{{ travel.price | currency: "ARS" }}</td>
-        <td>{{ travel.quantity }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="text-end">Total {{ total() | currency: "ARS" }}</p>
-  <div class="text-end">
-    <button class="btn btn-info">Comprar</button>
+<ng-container *ngIf="(cartList$ | async)?.length != 0">
+  <div class="container">
+    <h3 class="title">Carrito de Compra</h3>
   </div>
-</div>
+  <div *ngIf="cartList$ | async" class="col-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Price</th>
+          <th scope="col">Cant</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let travel of cartList$ | async">
+          <td>{{ travel.name }}</td>
+          <td>{{ travel.start_date | date }}</td>
+          <td>{{ travel.duration }} dias</td>
+          <td>{{ travel.price | currency: "ARS" }}</td>
+          <td>{{ travel.quantity }}</td>
+          <td>
+            <button (click)="removeCartData(travel)" class="btn btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-end">Total {{ total() | currency: "ARS" }}</p>
+    <div class="text-end">
+      <button class="btn btn-info">Comprar</button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(cartList$ | async)?.length == 0">
+  <div class="container">
+    <div class="card">
+      <h4 class="card-title">My Cart</h4>
+    </div>
+    <div class="center">
+      <img
+        src="https://cdn.educba.com/academy/wp-content/uploads/2015/12/application-apps-2.jpg"
+        alt=""
+      />
+      <h5>Your Cart is empty!</h5>
+      <h6>Add item to it now</h6>
+      <button class="btn btn-primary">Shop Now/button</button>
+    </div>
+  </div>
+</ng-container>

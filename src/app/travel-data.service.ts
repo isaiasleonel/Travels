@@ -11,14 +11,18 @@ const URL = 'https://6380ea698efcfcedac12f8c4.mockapi.io/Travel';
 export class TravelDataService {
   constructor(private http: HttpClient) {}
 
+  //api
   public geetAll(): Observable<Travel[]> {
-    //api
-    return this.http
-      .get<Travel[]>(URL)
-      .pipe(
-        tap((travels: Travel[]) =>
-          travels.forEach((travel) => (travel.quantity = 0))
-        )
-      );
+    // Funcion que da boolean random
+    const randomBoolean = () => Math.random() >= 0.5;
+    //consumimos el api
+    return this.http.get<Travel[]>(URL).pipe(
+      tap((travels: Travel[]) =>
+        travels.forEach((travel) => (travel.quantity = 0))
+      ),
+      tap((travels: Travel[]) =>
+        travels.forEach((travel) => (travel.clearance = randomBoolean()))
+      )
+    );
   }
 }

@@ -4,6 +4,7 @@
   </div>
   <div class="row my-5 cards-sponsor row-cols-1 row-cols-md-4 g-3">
     <div *ngFor="let travel of travels" class="col">
+      <!-------- Condicion si hay stock------->
       <div class="card h-100 animate__animated animate__pulse">
         <img
           [src]="travel.image"
@@ -14,28 +15,34 @@
         />
         <div [ngClass]="{ clearance: travel.clearance }" class="card-body">
           <p>Viaje a : {{ travel.name }}</p>
-          <p>{{ travel.price | currency }}</p>
+          <p><strong>Precio </strong>{{ travel.price | currency }}</p>
           <p>Duracion : {{ travel.duration }} dias</p>
           <p>Fecha :{{ travel.start_date | date }}</p>
-          <!-- modulo de cantidad -->
-          <app-input-integer
-            [(quantity)]="travel.quantity"
-            [max]="travel.stock"
-            *ngIf="travel.stock"
-            (maxReached)="maxReached($event)"
-          >
-          </app-input-integer>
-          <button class="btn-pay btn-dark" (click)="addToCart(travel)">
-            AGREGAR
-          </button>
-          <p class="p-badge">
-            <span class="badge text-bg-warning" *ngIf="travel.stock == 0">
-              Sin Stock</span
+          <ng-container *ngIf="travel.stock > 0">
+            <!--------- modulo de cantidad -->
+            <app-input-integer
+              [(quantity)]="travel.quantity"
+              [max]="travel.stock"
+              *ngIf="travel.stock"
+              (maxReached)="maxReached($event)"
             >
-          </p>
+            </app-input-integer>
+            <button class="btn-pay btn-dark" (click)="addToCart(travel)">
+              AGREGAR
+            </button>
+          </ng-container>
+          <!----------------Si no hay stock------------->
+          <ng-container *ngIf="travel.stock < 1">
+            <p class="p-badge">
+              <span class="badge text-bg-warning" *ngIf="travel.stock == 0">
+                Sin Stock</span
+              >
+            </p>
+          </ng-container>
         </div>
       </div>
+
+      <!-- figure 2  -->
     </div>
-    <!-- figure 2  -->
   </div>
 </div>

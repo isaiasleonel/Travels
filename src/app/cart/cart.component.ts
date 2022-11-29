@@ -10,19 +10,22 @@ import { Travel } from '../travel-list/Travel';
 })
 export class CartComponent implements OnInit {
   cartList$: Observable<Travel[]>;
-
   //mandamos por parametros al componente atravez de injectables de Idependencia
   constructor(private cart: TravelCartService) {
     this.cartList$ = cart.cartList.asObservable();
   }
+
   total() {
     let suma = 0;
     this.cart.cartList.getValue().forEach((travel) => {
       suma += travel.quantity * travel.price;
-      console.log(this.cart.cartList);
-      console.log('la suma es ' + suma);
     });
+    console.log(this.cartList$);
     return suma;
+  }
+
+  removeCartData(travel: Travel) {
+    this.cart.removeCartData(travel);
   }
 
   ngOnInit(): void {}
