@@ -18,3 +18,24 @@
   color: black;
   font-family: Monoton;
 }
+
+.home-ui-seo-cards {
+  display: flex;
+  gap: 2px;
+}
+.card_help {
+  background-color: white;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.conteiner_card_help {
+  display: flex;
+  gap: 8px;
+}
+h3,
+p {
+  font-family: Rubik, Arial, sans-serif;
+  letter-spacing: -0.1px;
+}
