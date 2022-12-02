@@ -21,3 +21,10 @@
   text-decoration: none;
   margin: 30px 0px;
 }
+.conteiner-btn {
+  flex-direction: row-reverse;
+  margin: 15px 0;
+}
+.btn-cart {
+  margin: 0 0.5rem;
+}

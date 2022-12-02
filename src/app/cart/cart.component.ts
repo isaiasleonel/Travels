@@ -27,6 +27,9 @@ export class CartComponent implements OnInit {
   removeCartData(travel: Travel) {
     this.cart.removeCartData(travel);
   }
+  removeAllCart() {
+    this.cart.removeAllCart();
+  }
 
   ngOnInit(): void {}
 }

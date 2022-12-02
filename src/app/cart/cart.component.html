@@ -21,7 +21,7 @@
           <td>{{ travel.name }}</td>
           <td>{{ travel.start_date | date }}</td>
           <td>{{ travel.duration }} dias</td>
-          <td>{{ travel.price | currency: "ARS" }}</td>
+          <td>{{ travel.price | currency : "ARS" }}</td>
           <td>{{ travel.quantity }}</td>
           <td>
             <button (click)="removeCartData(travel)" class="btn btn-danger">
@@ -42,9 +42,21 @@
         </tr>
       </tbody>
     </table>
-    <p class="text-end">Total {{ total() | currency: "ARS" }}</p>
+    <p class="text-end">Total {{ total() | currency : "ARS" }}</p>
     <div class="text-end">
-      <button class="btn btn-info">Comprar</button>
+      <div class="conteiner-btn d-flex text-end">
+        <div class="btn-cart">
+          <button class="btn btn-info">Comprar</button>
+        </div>
+        <div class="btn-cart">
+          <button (click)="removeAllCart()" class="btn btn-danger">
+            Vaciar
+          </button>
+        </div>
+        <div class="btn-cart">
+          <button [routerLink]="['/']" class="btn btn-info">+</button>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>

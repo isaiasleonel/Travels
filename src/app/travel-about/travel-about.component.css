@@ -34,8 +34,21 @@
   display: flex;
   gap: 8px;
 }
-h3,
-p {
+
+.travel-about_conteiner {
+  margin: 3rem 0;
+}
+.travel-about_p {
   font-family: Rubik, Arial, sans-serif;
   letter-spacing: -0.1px;
+}
+
+.travel-about_h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.travel-about_h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
 }
